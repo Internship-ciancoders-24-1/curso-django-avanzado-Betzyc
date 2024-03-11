@@ -10,22 +10,22 @@ REALIZADO
 
 docker-compose -f .\local.yml build
 
-![] (CAPITULOS/img/2.build.png)
+![](/CAPITULOS/img/2.build.png)
 
 ### Levantar el servicio
 
 docker-compose -f .\local.yml up
 
-![] (CAPITULOS/img/2.up.png)
+![](/CAPITULOS/img/2.up.png)
 
-![] (CAPITULOS/img/2.prueba.png)
+![](/CAPITULOS/img/2.prueba.png)
 
 ## Otros
 
 ### Muestra los servicios
 docker-compose -f local.yml ps
 
-![] (CAPITULOS/img/2.Servicios.png)
+![](/CAPITULOS/img/2.Servicios.png)
 
 ### Matar Servicios
 docker-compose -f local.yml down
@@ -42,9 +42,9 @@ docker- compose run --rm django COMMAND
 docker-compose run --rm django python manage.py createsuperuser
 docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-![] (CAPITULOS/img/2.user.png)
+![](/CAPITULOS/img/2.user.png)
 
-![] (CAPITULOS/img/2.ingreso.png)
+![](/CAPITULOS/img/2.ingreso.png)
 
 ## Habilitar debugger
 
