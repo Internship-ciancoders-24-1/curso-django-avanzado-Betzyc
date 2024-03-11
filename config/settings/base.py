@@ -49,7 +49,7 @@ THIRD_PARTY_APPS = [
     'django_filters'
 ]
 LOCAL_APPS = [
-    'cride.users.apps.UsersAppConfig',
+    'cride.users.apps.UsersAppConfig',# This is the application name, for the package name. cride/users, the class is UsersAppConfig
     'cride.circles.apps.CirclesAppConfig',
     'cride.rides.apps.RidesAppConfig',
 ]
