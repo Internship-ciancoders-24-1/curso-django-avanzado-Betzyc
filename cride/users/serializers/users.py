@@ -25,7 +25,7 @@ from cride.taskapp.tasks import send_confirmation_email
 
 class UserModelSerializer(serializers.ModelSerializer):
     """User model serializer."""
-    profile = ProfileModelSerializer(read_only=True)
+    profile = ProfileModelSerializer(read_only=True)# This is the profile field, which is a ProfileModelSerializer
 
     class Meta:
         model = User
@@ -53,7 +53,7 @@ class UserSignUpSerializer(serializers.Serializer):
     )
     # Phone number
     phone_regex = RegexValidator(
-        regex=r'\+?1?\d{9,15}$',
+        regex=r'\+?1?\d{9,15}$', # This is the regular expression for the phone number
         message="Phone number must be entered in the format: +999999999. Up to 15 digits allowed"
     )
     phone_number = serializers.CharField(validators=[phone_regex])
@@ -66,7 +66,7 @@ class UserSignUpSerializer(serializers.Serializer):
     first_name = serializers.CharField(min_length=2, max_length=30)
     last_name = serializers.CharField(min_length=2, max_length=30)
 
-    def validate(self, data):
+    def validate(self, data): # This is the validate method, which is used to validate the data
         """Verify passwords match"""
         passwd = data['password']
         passwd_conf = data['password_confirmation']
@@ -80,7 +80,7 @@ class UserSignUpSerializer(serializers.Serializer):
         data.pop('password_confirmation')
         user = User.objects.create_user(**data, is_verified=False, is_client=True)
         Profile.objects.create(user=user)
-        send_confirmation_email.delay(user_pk=user.pk)
+        send_confirmation_email.delay(user_pk=user.pk)# This is the send_confirmation_email task
         return user
 
 
@@ -116,7 +116,7 @@ class AccountVerificationSerializer(serializers.Serializer):
     def validate_token(self, data):
         """Verify token is valid."""
         try:
-            payload = jwt.decode(data, settings.SECRET_KEY, algorithms=['HS256'])
+            payload = jwt.decode(data, settings.SECRET_KEY, algorithms=['HS256']) # This is the payload
         except jwt.ExpiredSignatureError:
             raise serializers.ValidationError('Verification link has expired.')
         except jwt.PyJWTError:

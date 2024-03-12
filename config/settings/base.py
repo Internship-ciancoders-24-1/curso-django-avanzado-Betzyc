@@ -31,6 +31,7 @@ ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Users & Authentication
+# users is the app name, User is the model name
 AUTH_USER_MODEL = 'users.User'
 
 # Apps
@@ -44,8 +45,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework',
-    'rest_framework.authtoken',
+    'rest_framework', # Django REST framework
+    'rest_framework.authtoken', # Django REST framework token authentication
     'django_filters'
 ]
 LOCAL_APPS = [
