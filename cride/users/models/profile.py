@@ -26,9 +26,9 @@ class Profile(CRideModels):
     biography = models.TextField(max_length=501, blank=True)
 
     # Stats
-    rides_taken = models.PositiveIntegerField(default=0)
-    rides_offered = models.PositiveBigIntegerField(default=0)
-    reputation = models.FloatField(
+    rides_taken = models.PositiveIntegerField(default=0)#The number of rides a user has taken
+    rides_offered = models.PositiveBigIntegerField(default=0)#The number of rides a user has offered
+    reputation = models.FloatField(#The reputation of the user
         default=5.0,
         help_text="User's reputation based on the rides taken and offered."
     )

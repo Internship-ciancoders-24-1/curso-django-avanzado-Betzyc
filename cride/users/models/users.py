@@ -22,11 +22,14 @@ class User(CRideModels, AbstractUser):
         error_messages={'unique': 'A user with that email already exists.'}
     )
 
+    #RegexValidator is a class that validates a string using a regular expression.
     phone_regex = RegexValidator(
-        regex=r'\+?1?\d{9,15}$',
+        #Can initialize with a signal plus or one numer, then 9 to 15 digits
+        regex=r'\+?1?\d{9,15}$',#The regular expression that will be used to validate the input.
         message="Phone number must be entered in the format: +999999999. Up to 15 digits allowed"
     )
 
+    # validators is a list of validators to run for this field
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
 
     USERNAME_FIELD: str = 'email'
@@ -51,6 +54,7 @@ class User(CRideModels, AbstractUser):
         """Return username"""
         return self.username
 
+    # get_full_name and get_short_name are required for the admin, is the format of the user in the admin
     def get_short_name(self) -> str:
         """Return username."""
         return self.username
